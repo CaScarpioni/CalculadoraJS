@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  margin: 0; /*zerar pra não ter scroll, pois o body tem um tamanho padrão*/
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(to right, #2d3e37, #3c8b6c);
+}
+
+/* estilização grid de numeros */
+.grid-container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(
+    4,
+    100px
+  ); /* gera 4 colunas de 100 pixels cada*/
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px); /* gera 5 linhas de 100 pixels cada e tamanho responsivo*/
+}
+
+/*mudar o "grid" dos botoes, mudando cor da borda dos botoes e tamanho da fonte */
+.grid-container > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  background-color: #111;
+  color: #eee;
+}
+
+.grid-container > button:hover {
+  background-color: #eee;
+  color: #111;
+}
+.grid-container > .operator {
+  background: #397c5c;
+}
+
+.span-two {
+  grid-column: span 2; /*espande 2 colunas*/
+}
+.grid-container > .output {
+  grid-column: 1/-1; /*espande por toda a linha*/
+  background: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around; /*espaço entre si e a borda*/
+  padding: 10px;
+  word-wrap: break-word; /*responsividade, pois não vai quebrar a div pelos caracteres*/
+  word-break: break-all;
+}
+
+.grid-container > .output > .previous-operand {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.5rem;
+}
+.grid-container > .output > .current-operand {
+  color: white;
+  font-size: 2.5rem;
+}
